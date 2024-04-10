@@ -7,24 +7,22 @@ import javafx.stage.Stage;
 import com.example.game_java.database.Database;
 import java.sql.Connection;
 import java.sql.SQLException;
-
 import java.io.IOException;
 
-public class HelloApplication extends Application {
+public class Game extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        stage.setTitle("Menu!");
-        stage.setScene(scene);
+        FXMLLoader fxmlLoader = new FXMLLoader(Game.class.getResource("connection/connection-view.fxml"));
+        Scene login = new Scene(fxmlLoader.load(), 500, 500);
+        stage.setTitle("Login");
+        stage.setScene(login);
         stage.show();
-        connectDatabase();
     }
 
     public void connectDatabase(){
         try{
             Connection connection = Database.getConnection();
-            System.out.println("marche");
+            System.out.println("working");
             connection.close();
         } catch (SQLException e){
             System.err.println("error : " + e.getMessage());
