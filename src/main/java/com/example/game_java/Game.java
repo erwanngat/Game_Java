@@ -5,16 +5,17 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import com.example.game_java.database.Database;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.io.IOException;
+
+import static com.example.game_java.database.Database.getConnection;
 
 public class Game extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Game.class.getResource("connection/connection-view.fxml"));
-        Scene login = new Scene(fxmlLoader.load(), 500, 500);
+        Scene login = new Scene(fxmlLoader.load(), 450, 550);
         stage.setTitle("Login");
         stage.setScene(login);
         stage.show();
@@ -25,7 +26,7 @@ public class Game extends Application {
 
     public void connectDatabase(){
         try{
-            Connection connection = Database.getConnection();
+            Connection connection = getConnection();
             System.out.println("working");
             connection.close();
         } catch (SQLException e){

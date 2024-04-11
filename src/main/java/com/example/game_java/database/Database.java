@@ -12,4 +12,22 @@ public class Database {
     public static Connection getConnection() throws SQLException, ClassNotFoundException {
         return DriverManager.getConnection(URL, USERNAME, PASSWORD);
     }
+
+    public void openDatabaseConnection(){
+        try{
+            Connection connection = Database.getConnection();
+            System.out.println("working");
+        } catch (SQLException e){
+            System.err.println("error : " + e.getMessage());
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void closeDatabaseConnection(Connection connection) throws SQLException {
+        if (connection != null) {
+            connection.close();
+        }
+    }
 }
+

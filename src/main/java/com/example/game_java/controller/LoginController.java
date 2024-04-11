@@ -21,7 +21,7 @@ public class LoginController {
     @FXML
     protected void onRegisterRedirectClick() throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader(Game.class.getResource("connection/register-view.fxml"));
-        Scene register = new Scene(fxmlLoader.load(), 500, 500);
+        Scene register = new Scene(fxmlLoader.load(), 450, 550);
         Stage newStage = new Stage();
         newStage.setTitle("Register");
         newStage.setScene(register);

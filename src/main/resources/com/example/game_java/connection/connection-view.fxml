@@ -27,7 +27,7 @@
             <Font size="25.0" />
         </font>
     </Label>
-    <Label text="Username :">
+    <Label text="Email :">
         <font>
             <Font size="18.0" />
         </font></Label>
@@ -38,21 +38,19 @@
         </font></Label>
     <PasswordField />
     <Pane prefHeight="30.0" prefWidth="288.0">
-        <children>
-            <Label layoutX="61.0" layoutY="4.0" text="Don't have an account register :">
-                <font>
-                    <Font size="14.0" />
-                </font>
-            </Label>
-            <Label accessibleRole="HYPERLINK" layoutX="279.0" layoutY="5.0" onMouseClicked="#onRegisterRedirectClick" text="here" underline="true">
-                <font>
-                    <Font size="14.0" />
-                </font>
-                <cursor>
-                    <Cursor fx:constant="HAND" />
-                </cursor>
-            </Label>
-        </children>
+        <Label layoutX="61.0" layoutY="4.0" text="Don't have an account register :">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+        <Label accessibleRole="HYPERLINK" layoutX="279.0" layoutY="5.0" onMouseClicked="#onRegisterRedirectClick" text="here" underline="true">
+            <font>
+                <Font size="14.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Label>
     </Pane>
     <Button onAction="#onLoginButtonClick" text="Login" />
 </VBox>
