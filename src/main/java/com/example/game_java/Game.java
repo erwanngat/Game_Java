@@ -1,5 +1,6 @@
 package com.example.game_java;
 
+import com.example.game_java.controller.LoginController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -17,6 +18,9 @@ public class Game extends Application {
         stage.setTitle("Login");
         stage.setScene(login);
         stage.show();
+
+        LoginController controller = fxmlLoader.getController();
+        controller.setStage(stage);
     }
 
     public void connectDatabase(){
