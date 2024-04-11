@@ -4,7 +4,6 @@ import com.example.game_java.Game;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 
 public class RegisterController {
