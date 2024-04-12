@@ -4,10 +4,12 @@ public class User {
     private int id;
     private String email;
     private String password;
+    private String passwordConfirmation;
 
-    public User(String email, String password){
+    public User(String email, String password, String passwordConfirmation){
         this.email = email;
         this.password = password;
+        this.passwordConfirmation = passwordConfirmation;
     }
 
     public int getId(){
@@ -22,6 +24,10 @@ public class User {
         return this.password;
     }
 
+    public String getPasswordConfirmation() {
+        return this.passwordConfirmation;
+    }
+
     public void setId(int id){
         this.id = id;
     }
@@ -34,12 +40,15 @@ public class User {
         this.password = password;
     }
 
+    public void setPasswordConfirmation(String passwordConfirmation) {
+        this.passwordConfirmation = passwordConfirmation;
+    }
+
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
                 ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
                 '}';
     }
 }

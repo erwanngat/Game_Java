@@ -15,7 +15,7 @@ public class Game extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Game.class.getResource("connection/connection-view.fxml"));
-        Scene login = new Scene(fxmlLoader.load(), 450, 550);
+        Scene login = new Scene(fxmlLoader.load(), 450, 600);
         stage.setTitle("Login");
         stage.setScene(login);
         stage.show();

@@ -6,11 +6,12 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefHeight="570.0" prefWidth="425.0" spacing="20.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.game_java.controller.RegisterController">
+<VBox alignment="CENTER" prefHeight="600.0" prefWidth="425.0" spacing="20.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.game_java.controller.RegisterController">
    <padding>
       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
    </padding>
@@ -37,6 +38,16 @@
          <Font size="18.0" />
       </font></Label>
    <PasswordField fx:id="passwordField" />
+   <Label text="Password confirmation:">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Label>
+   <PasswordField fx:id="passwordConfirmationField" />
+   <HBox alignment="CENTER">
+      <Label fx:id="errorLabel" styleClass="error-label" textFill="#ec1616"/>
+   </HBox>
+
    <Pane prefHeight="30.0" prefWidth="288.0">
       <Label layoutX="61.0" layoutY="4.0" text="Already have an account ? Connect :">
          <font>
