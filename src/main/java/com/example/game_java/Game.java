@@ -9,7 +9,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.io.IOException;
 
-import static com.example.game_java.database.Database.getConnection;
+import static com.example.game_java.Model.Database.getConnection;
 
 public class Game extends Application {
     @Override

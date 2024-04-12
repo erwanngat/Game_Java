@@ -31,12 +31,12 @@
       <font>
          <Font size="18.0" />
       </font></Label>
-   <TextField prefHeight="26.0" prefWidth="371.0" />
+   <TextField fx:id="emailField" prefHeight="26.0" prefWidth="371.0" />
    <Label text="Password :">
       <font>
          <Font size="18.0" />
       </font></Label>
-   <PasswordField />
+   <PasswordField fx:id="passwordField" />
    <Pane prefHeight="30.0" prefWidth="288.0">
       <Label layoutX="61.0" layoutY="4.0" text="Already have an account ? Connect :">
          <font>
