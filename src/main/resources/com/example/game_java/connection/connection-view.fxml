@@ -10,6 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.layout.HBox?>
 <VBox alignment="CENTER" prefHeight="600.0" prefWidth="425.0" spacing="20.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.game_java.controller.LoginController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
@@ -31,12 +32,15 @@
         <font>
             <Font size="18.0" />
         </font></Label>
-    <TextField prefHeight="26.0" prefWidth="371.0" />
+    <TextField fx:id="emailField" prefHeight="26.0" prefWidth="371.0" />
     <Label text="Password :">
         <font>
             <Font size="18.0" />
         </font></Label>
-    <PasswordField />
+    <PasswordField fx:id="passwordField"/>
+    <HBox alignment="CENTER">
+        <Label fx:id="errorLabel" styleClass="error-label" textFill="#ec1616"/>
+    </HBox>
     <Pane prefHeight="30.0" prefWidth="288.0">
         <Label layoutX="61.0" layoutY="4.0" text="Don't have an account register :">
             <font>

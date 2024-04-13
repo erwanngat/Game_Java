@@ -58,7 +58,6 @@ public class RegisterController {
             errorLabel.setText("The passwords do not match.");
         }
 
-
         if (checkEmail(email) && password.equals(passwordConfirmation) && !password.isEmpty()){
             User user = new User(email, password, passwordConfirmation);
             createUser(user);
