@@ -1,8 +1,8 @@
-package com.example.game_java.controller;
+package com.example.game_java.controller.connection;
 
 import com.example.game_java.Game;
-import com.example.game_java.Model.Database;
 import com.example.game_java.Model.User;
+import com.example.game_java.controller.game.MenuController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -17,7 +17,6 @@ import static com.example.game_java.Model.UserDAO.createUser;
 
 public class RegisterController {
 
-    private final Database database = new Database();
     private Stage stage;
     @FXML
     private TextField emailField;
@@ -43,7 +42,7 @@ public class RegisterController {
     }
 
     @FXML
-    protected void onRegisterButtonClick() {
+    protected void onRegisterButtonClick() throws IOException {
         String email = emailField.getText();
         String password = passwordField.getText();
         String passwordConfirmation = passwordConfirmationField.getText();
@@ -61,12 +60,22 @@ public class RegisterController {
         if (checkEmail(email) && password.equals(passwordConfirmation) && !password.isEmpty()){
             User user = new User(email, password, passwordConfirmation);
             createUser(user);
+            FXMLLoader fxmlLoader = new FXMLLoader(Game.class.getResource("game/menu-view.fxml"));
+            Scene menu = new Scene(fxmlLoader.load(), 1920, 1080);
+            Stage newStage = new Stage();
+            newStage.setTitle("Register");
+            newStage.setScene(menu);
+            newStage.show();
+            stage.close();
+
+            MenuController controller = fxmlLoader.getController();
+            controller.setStage(newStage);
         }
     }
 
     @FXML
     protected void onLoginRedirectClick() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Game.class.getResource("connection/connection-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Game.class.getResource("connection/login-view.fxml"));
         Scene login = new Scene(fxmlLoader.load(), 450, 600);
         Stage newStage = new Stage();
         newStage.setTitle("Login");

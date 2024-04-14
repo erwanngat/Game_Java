@@ -1,6 +1,7 @@
-package com.example.game_java.controller;
+package com.example.game_java.controller.connection;
 
 import com.example.game_java.Game;
+import com.example.game_java.controller.game.MenuController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -24,11 +25,21 @@ public class LoginController {
     }
 
     @FXML
-    protected void onLoginButtonClick() {
+    protected void onLoginButtonClick() throws IOException {
         if (!loginUser(emailField.getText(), passwordField.getText())){
             errorLabel.setText("Invalid email or password.");
         } else {
             System.out.println("pass");
+            FXMLLoader fxmlLoader = new FXMLLoader(Game.class.getResource("game/menu-view.fxml"));
+            Scene menu = new Scene(fxmlLoader.load(), 1920, 1080);
+            Stage newStage = new Stage();
+            newStage.setTitle("Register");
+            newStage.setScene(menu);
+            newStage.show();
+            stage.close();
+
+            MenuController controller = fxmlLoader.getController();
+            controller.setStage(newStage);
         }
     }
 
