@@ -6,12 +6,12 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.game_java.controller.game.MenuController">
+<AnchorPane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
       <Label layoutX="730.0" layoutY="58.0" text="Select a character">
          <font>
             <Font size="66.0" />
          </font></Label>
-      <Button fx:id="slot1" onAction="#onNewCharacterButton" layoutX="320.0" layoutY="400.0" mnemonicParsing="false" prefHeight="250.0" prefWidth="250.0" text="+">
+      <Button fx:id="slot1" layoutX="320.0" layoutY="400.0" mnemonicParsing="false" onAction="#onNewCharacterButton" prefHeight="250.0" prefWidth="250.0" text="+">
          <font>
             <Font size="120.0" />
          </font>
@@ -19,7 +19,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="slot2" onAction="#onNewCharacterButton" layoutX="835.0" layoutY="400.0" mnemonicParsing="false" prefHeight="250.0" prefWidth="250.0" text="+">
+      <Button fx:id="slot2" layoutX="835.0" layoutY="400.0" mnemonicParsing="false" onAction="#onNewCharacterButton" prefHeight="250.0" prefWidth="250.0" text="+">
          <font>
             <Font size="120.0" />
          </font>
@@ -27,7 +27,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="slot3" onAction="#onNewCharacterButton" layoutX="1350.0" layoutY="400.0" mnemonicParsing="false" prefHeight="250.0" prefWidth="250.0" text="+">
+      <Button fx:id="slot3" layoutX="1350.0" layoutY="400.0" mnemonicParsing="false" onAction="#onNewCharacterButton" prefHeight="250.0" prefWidth="250.0" text="+">
          <font>
             <Font size="120.0" />
          </font>
@@ -37,17 +37,17 @@
       </Button>
       <Label fx:id="labelSlot1" alignment="CENTER" layoutX="320.0" layoutY="680.0" prefHeight="80.0" prefWidth="250.0" text="Slot 1">
          <font>
-            <Font size="50.0" />
+            <Font size="30.0" />
          </font>
       </Label>
       <Label fx:id="labelSlot2" alignment="CENTER" layoutX="835.0" layoutY="680.0" prefHeight="80.0" prefWidth="250.0" text="Slot 2">
          <font>
-            <Font size="50.0" />
+            <Font size="30.0" />
          </font>
       </Label>
       <Label fx:id="labelSlot3" alignment="CENTER" layoutX="1350.0" layoutY="680.0" prefHeight="80.0" prefWidth="250.0" text="Slot 3">
          <font>
-            <Font size="50.0" />
+            <Font size="30.0" />
          </font>
       </Label>
 </AnchorPane>

@@ -61,14 +61,15 @@ public class RegisterController {
             User user = new User(email, password, passwordConfirmation);
             createUser(user);
             FXMLLoader fxmlLoader = new FXMLLoader(Game.class.getResource("game/menu-view.fxml"));
+            MenuController controller = new MenuController(user);
+            fxmlLoader.setController(controller);
             Scene menu = new Scene(fxmlLoader.load(), 1920, 1080);
             Stage newStage = new Stage();
-            newStage.setTitle("Register");
+            newStage.setTitle("Menu");
             newStage.setScene(menu);
             newStage.show();
             stage.close();
 
-            MenuController controller = fxmlLoader.getController();
             controller.setStage(newStage);
         }
     }

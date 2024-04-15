@@ -1,6 +1,6 @@
 package com.example.game_java;
 
-import com.example.game_java.controller.game.MenuController;
+import com.example.game_java.controller.connection.LoginController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -14,15 +14,13 @@ import static com.example.game_java.Model.Database.getConnection;
 public class Game extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Game.class.getResource("game/menu-view.fxml"));
-//        Scene login = new Scene(fxmlLoader.load(), 450, 600);
-        Scene login = new Scene(fxmlLoader.load(), 1920, 1080);
+        FXMLLoader fxmlLoader = new FXMLLoader(Game.class.getResource("connection/login-view.fxml"));
+        Scene login = new Scene(fxmlLoader.load(), 450, 600);
         stage.setTitle("Login");
         stage.setScene(login);
         stage.show();
 
-//        LoginController controller = fxmlLoader.getController();
-        MenuController controller = fxmlLoader.getController();
+        LoginController controller = fxmlLoader.getController();
         controller.setStage(stage);
     }
 
