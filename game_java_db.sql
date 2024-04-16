@@ -24,6 +24,7 @@ USE `game_java`;
 DROP TABLE IF EXISTS `characters`;
 CREATE TABLE IF NOT EXISTS `characters` (
   `id` int NOT NULL AUTO_INCREMENT,
+  `slot` int NOT NULL,
   `name` varchar(255) NOT NULL,
   `level` int NOT NULL,
   `maxHealth` int NOT NULL,
