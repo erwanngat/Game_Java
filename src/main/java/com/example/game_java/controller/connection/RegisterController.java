@@ -2,7 +2,7 @@ package com.example.game_java.controller.connection;
 
 import com.example.game_java.Game;
 import com.example.game_java.Model.User;
-import com.example.game_java.controller.game.MenuController;
+import com.example.game_java.controller.selection.MenuController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -60,13 +60,14 @@ public class RegisterController {
         if (checkEmail(email) && password.equals(passwordConfirmation) && !password.isEmpty()){
             User user = new User(email, password, passwordConfirmation);
             createUser(user);
-            FXMLLoader fxmlLoader = new FXMLLoader(Game.class.getResource("game/menu-view.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(Game.class.getResource("selection/menu-view.fxml"));
             MenuController controller = new MenuController(user);
             fxmlLoader.setController(controller);
-            Scene menu = new Scene(fxmlLoader.load(), 1920, 1080);
+            Scene menu = new Scene(fxmlLoader.load());
             Stage newStage = new Stage();
             newStage.setTitle("Menu");
             newStage.setScene(menu);
+            newStage.setFullScreen(true);
             newStage.show();
             stage.close();
 

@@ -17,6 +17,6 @@ module com.example.game_java {
     exports com.example.game_java;
     exports com.example.game_java.controller.connection;
     opens com.example.game_java.controller.connection to javafx.fxml;
-    exports com.example.game_java.controller.game;
-    opens com.example.game_java.controller.game to javafx.fxml;
+    exports com.example.game_java.controller.selection;
+    opens com.example.game_java.controller.selection to javafx.fxml;
 }
