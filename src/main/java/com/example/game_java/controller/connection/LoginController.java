@@ -35,11 +35,10 @@ public class LoginController {
             FXMLLoader fxmlLoader = new FXMLLoader(Game.class.getResource("selection/menu-view.fxml"));
             MenuController controller = new MenuController(user);
             fxmlLoader.setController(controller);
-            Scene menu = new Scene(fxmlLoader.load());
+            Scene menu = new Scene(fxmlLoader.load(), 1920, 1080);
             Stage newStage = new Stage();
             newStage.setTitle("Menu");
             newStage.setScene(menu);
-            newStage.setFullScreen(true);
             newStage.show();
             stage.close();
 
