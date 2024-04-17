@@ -34,7 +34,7 @@ public class UserDAO {
     }
 
     public static User getUserByEmail(String email){
-        String request = "SELECT * FROM "+ TABLE + " WHERE " + EMAIL + " = ?";
+        String request = "SELECT * FROM " + TABLE + " WHERE " + EMAIL + " = ?";
         try (Connection connection = Database.getConnection()){
             PreparedStatement pst = connection.prepareStatement(request);
             pst.setString(1, email);
