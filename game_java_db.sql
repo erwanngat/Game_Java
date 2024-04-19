@@ -16,15 +16,12 @@
 
 
 -- Listage de la structure de la base pour game_java
-DROP DATABASE IF EXISTS `game_java`;
 CREATE DATABASE IF NOT EXISTS `game_java` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `game_java`;
 
 -- Listage de la structure de table game_java. characters
-DROP TABLE IF EXISTS `characters`;
 CREATE TABLE IF NOT EXISTS `characters` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `class` VARCHAR(255) NOT NULL,
   `slot` int NOT NULL,
   `name` varchar(255) NOT NULL,
   `level` int NOT NULL,
@@ -40,8 +37,19 @@ CREATE TABLE IF NOT EXISTS `characters` (
 
 -- Les données exportées n'étaient pas sélectionnées.
 
+-- Listage de la structure de table game_java. char_class
+CREATE TABLE IF NOT EXISTS `char_class` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `default_health_point` int NOT NULL,
+  `default_damage` int NOT NULL,
+  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Les données exportées n'étaient pas sélectionnées.
+
 -- Listage de la structure de table game_java. users
-DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int NOT NULL AUTO_INCREMENT,
   `email` varchar(255) NOT NULL,
@@ -49,7 +57,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- Les données exportées n'étaient pas sélectionnées.
 

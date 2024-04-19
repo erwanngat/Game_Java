@@ -7,7 +7,7 @@ public class CharClass {
     protected int defaultDamage;
 
     public CharClass(){
-        this.name = "No lass";
+        this.name = "No class";
         this.defaultHealthPoint = 100;
         this.defaultDamage = 10;
     }
