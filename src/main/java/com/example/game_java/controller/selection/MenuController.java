@@ -51,6 +51,4 @@ public class MenuController {
 
         controller.setStage(newStage);
     }
-
-
 }
