@@ -22,15 +22,17 @@ USE `game_java`;
 -- Listage de la structure de table game_java. characters
 CREATE TABLE IF NOT EXISTS `characters` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `slot` int NOT NULL,
   `name` varchar(255) NOT NULL,
+  `char_class_id` int NOT NULL,
   `level` int NOT NULL,
   `maxHealth` int NOT NULL,
   `health` int NOT NULL,
-  `dammage` int NOT NULL,
+  `damage` int NOT NULL,
   `user_id` int NOT NULL,
   `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
+  KEY `fk_char_class_id` (`char_class_id`),
+  CONSTRAINT `fk_char_class_id` FOREIGN KEY (`char_class_id`) REFERENCES `char_class` (`id`),
   KEY `fk_user_id` (`user_id`),
   CONSTRAINT `fk_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
