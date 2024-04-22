@@ -14,8 +14,9 @@ public class CharClass {
         this.defaultDamage = 10;
     }
 
-    public CharClass(String name){
+    public CharClass(int id, String name){
         this.name = name;
+        this.id = id;
         switch (name) {
             case "warrior":
                 this.defaultHealthPoint = 120;

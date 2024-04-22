@@ -1,6 +1,7 @@
 package com.example.game_java.controller.selection;
 
 import com.example.game_java.Game;
+import com.example.game_java.Model.User;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -21,9 +22,12 @@ public class CharacterSelectionController {
     public ImageView Wizard;
     @FXML
     public ImageView Archer;
+    private final User user;
 
-    public CharacterSelectionController(String buttonid){
+
+    public CharacterSelectionController(String buttonid, User user){
         this.buttonId = buttonid;
+        this.user = user;
     }
 
     public void setStage(Stage newStage) {
@@ -37,7 +41,7 @@ public class CharacterSelectionController {
         String className = CharClass.getId();
 
         FXMLLoader fxmlLoader = new FXMLLoader(Game.class.getResource("selection/class-selection-view.fxml"));
-        ClassSelectionController controller = new ClassSelectionController(className);
+        ClassSelectionController controller = new ClassSelectionController(className, user);
         fxmlLoader.setController(controller);
         Scene classSelection = new Scene(fxmlLoader.load(), 450, 600);
         Stage newStage = new Stage();

@@ -40,7 +40,7 @@ public class MenuController {
         String buttonId = button.getId();
 
         FXMLLoader fxmlLoader = new FXMLLoader(Game.class.getResource("selection/character-selection-view.fxml"));
-        CharacterSelectionController controller = new CharacterSelectionController(buttonId);
+        CharacterSelectionController controller = new CharacterSelectionController(buttonId, user);
         fxmlLoader.setController(controller);
         Scene characterSelection = new Scene(fxmlLoader.load(), 1920, 1080);
         Stage newStage = new Stage();

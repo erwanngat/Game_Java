@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -35,9 +36,16 @@
          <Font size="22.0" />
       </font>
    </Label>
-   <Button fx:id="choose" layoutX="177.0" layoutY="429.0" mnemonicParsing="false" text="Choose" onAction="#chooseClass">
+   <Button fx:id="choose" layoutX="177.0" layoutY="429.0" mnemonicParsing="false" onAction="#chooseClass" text="Choose">
       <font>
          <Font size="20.0" />
       </font>
    </Button>
+   <Label layoutX="92.0" layoutY="370.0" text="Username :">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Label>
+   <TextField fx:id="charUsername" layoutX="193.0" layoutY="370.0" />
+   <Label fx:id="usernameError" layoutX="209.0" layoutY="411.0" textFill="#fc0303" />
 </AnchorPane>

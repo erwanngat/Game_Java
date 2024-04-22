@@ -1,5 +1,12 @@
 package com.example.game_java.Model.charClass;
 
+import com.example.game_java.Model.Database;
+import com.example.game_java.Model.User;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
 public class Character {
     private int id;
     private String name;
@@ -15,6 +22,15 @@ public class Character {
         this.maxHealthPoint = 100;
         this.healthPoint = 100;
         this.damage = 10;
+    }
+
+    public Character(String name, CharClass charClass, int level, int maxHealthPoint, int healthPoint, int damage) {
+        this.name = name;
+        this.charClass = charClass;
+        this.level = level;
+        this.maxHealthPoint = maxHealthPoint;
+        this.healthPoint = healthPoint;
+        this.damage = damage;
     }
 
     public Character(String name, CharClass charClass) {
@@ -80,5 +96,23 @@ public class Character {
 
     public void setDamage(int damage) {
         this.damage = damage;
+    }
+
+    public void saveCharacter(Character character, User user){
+        String request = "INSERT INTO characters (name, char_class_id, level, maxHealth, health, damage, user_id) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        try (Connection connection = Database.getConnection()){
+            PreparedStatement pst = connection.prepareStatement(request);
+            pst.setString(1, character.getName());
+            pst.setInt(2, character.getCharClass().getId());
+            pst.setInt(3, character.getLevel());
+            pst.setInt(4, character.getMaxHealthPoint());
+            pst.setInt(5, character.getHealthPoint());
+            pst.setInt(6, character.getDamage());
+            pst.setInt(7, user.getId());
+
+            pst.executeUpdate();
+        } catch (SQLException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
