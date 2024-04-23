@@ -1,5 +1,12 @@
 package com.example.game_java.Model;
 
+import javafx.scene.chart.PieChart;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 public class User {
     private int id;
     private String email;
@@ -15,6 +22,22 @@ public class User {
         this.email = email;
         this.password = password;
         this.passwordConfirmation = passwordConfirmation;
+    }
+
+    public int getIdDB(){
+        String request = "SELECT id FROM users WHERE email = ?";
+        try (Connection connection = Database.getConnection()){
+            PreparedStatement pst = connection.prepareStatement(request);
+            pst.setString(1, this.email);
+            ResultSet resultSet = pst.executeQuery();
+            if (resultSet.next()) {
+                return resultSet.getInt(1);
+            } else {
+                return -1;
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public int getId(){

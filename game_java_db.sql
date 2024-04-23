@@ -19,23 +19,6 @@
 CREATE DATABASE IF NOT EXISTS `game_java` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `game_java`;
 
--- Listage de la structure de table game_java. characters
-CREATE TABLE IF NOT EXISTS `characters` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
-  `char_class_id` int NOT NULL,
-  `level` int NOT NULL,
-  `maxHealth` int NOT NULL,
-  `health` int NOT NULL,
-  `damage` int NOT NULL,
-  `user_id` int NOT NULL,
-  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`),
-  KEY `fk_char_class_id` (`char_class_id`),
-  CONSTRAINT `fk_char_class_id` FOREIGN KEY (`char_class_id`) REFERENCES `char_class` (`id`),
-  KEY `fk_user_id` (`user_id`),
-  CONSTRAINT `fk_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- Les données exportées n'étaient pas sélectionnées.
 
@@ -63,6 +46,25 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 -- Les données exportées n'étaient pas sélectionnées.
 
+-- Listage de la structure de table game_java. characters
+CREATE TABLE IF NOT EXISTS `characters` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `char_class_id` int NOT NULL,
+  `level` int NOT NULL,
+  `maxHealth` int NOT NULL,
+  `health` int NOT NULL,
+  `damage` int NOT NULL,
+  `user_id` int NOT NULL,
+  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `fk_char_class_id` (`char_class_id`),
+  CONSTRAINT `fk_char_class_id` FOREIGN KEY (`char_class_id`) REFERENCES `char_class` (`id`),
+  KEY `fk_user_id` (`user_id`),
+  CONSTRAINT `fk_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+INSERT INTO char_class (id, name, default_health_point, default_damage) VALUES (1, 'Warrior', 120, 8), (2, 'Rogue', 80, 14), (3, 'Wizard', 90, 12), (4, 'Archer', 85, 13)
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;

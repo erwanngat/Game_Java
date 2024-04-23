@@ -108,7 +108,7 @@ public class Character {
             pst.setInt(4, character.getMaxHealthPoint());
             pst.setInt(5, character.getHealthPoint());
             pst.setInt(6, character.getDamage());
-            pst.setInt(7, user.getId());
+            pst.setInt(7, user.getIdDB());
 
             pst.executeUpdate();
         } catch (SQLException | ClassNotFoundException e) {
