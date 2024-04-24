@@ -11,6 +11,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.sql.SQLException;
 
 import static com.example.game_java.Model.UserDAO.getUserByEmail;
 import static com.example.game_java.Model.UserDAO.loginUser;
@@ -27,7 +28,7 @@ public class LoginController {
     }
 
     @FXML
-    protected void onLoginButtonClick() throws IOException {
+    protected void onLoginButtonClick() throws IOException, SQLException, ClassNotFoundException, NoSuchFieldException, IllegalAccessException {
         if (!loginUser(emailField.getText(), passwordField.getText())){
             errorLabel.setText("Invalid email or password.");
         } else {
@@ -41,7 +42,6 @@ public class LoginController {
             newStage.setScene(menu);
             newStage.show();
             stage.close();
-
             controller.setStage(newStage);
         }
     }

@@ -50,4 +50,19 @@
             <Font size="30.0" />
          </font>
       </Label>
+   <Label fx:id="labelLevelSlot1" layoutX="419.0" layoutY="754.0">
+      <font>
+         <Font size="20.0" />
+      </font>
+   </Label>
+   <Label fx:id="labelLevelSlot2" layoutX="931.0" layoutY="754.0">
+      <font>
+         <Font size="20.0" />
+      </font>
+   </Label>
+   <Label fx:id="labelLevelSlot3" layoutX="1451.0" layoutY="754.0">
+      <font>
+         <Font size="20.0" />
+      </font>
+   </Label>
 </AnchorPane>

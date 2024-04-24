@@ -73,7 +73,7 @@ public class ClassSelectionController {
             case "Archer" -> new CharClass(4, "archer");
             default -> throw new IllegalArgumentException("Invalid classPass value: " + this.classPass);
         };
-        Character character = new Character(username, charClass, 1, charClass.getDefaultHealthPoint(), charClass.getDefaultHealthPoint(), charClass.getDefaultDamage());
+        Character character = new Character(username, charClass.getId(), 1, charClass.getDefaultHealthPoint(), charClass.getDefaultHealthPoint(), charClass.getDefaultDamage());
         character.saveCharacter(character, user);
     }
 }

@@ -1,11 +1,14 @@
 package com.example.game_java.Model;
 
+import com.example.game_java.Model.charClass.Character;
 import javafx.scene.chart.PieChart;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class User {
     private int id;
@@ -70,6 +73,25 @@ public class User {
 
     public void setPasswordConfirmation(String passwordConfirmation) {
         this.passwordConfirmation = passwordConfirmation;
+    }
+
+    public List<Character> getCharacter() throws SQLException, ClassNotFoundException {
+        List<Character> characters = new ArrayList<>();
+        String request = "SELECT name, char_class_id, level FROM characters WHERE user_id = ?";
+        try (Connection connection = Database.getConnection()){
+            PreparedStatement pst = connection.prepareStatement(request);
+            pst.setInt(1, getIdDB());
+
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                String name = rs.getString("name");
+                int charClassId = rs.getInt("char_class_id");
+                int level = rs.getInt("level");
+                Character character = new Character(name, charClassId, level); // Assuming a Character class exists
+                characters.add(character);
+            }
+            return characters;
+        }
     }
 
     @Override
